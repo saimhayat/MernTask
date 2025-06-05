@@ -27,7 +27,7 @@
 }
 
 .button:hover {
-  background-color: #000000; /* Darker on hover */
+  background-color: #e5e5e5; /* Darker on hover */
   transform: scale(0.80);
 }
 
