@@ -25,7 +25,7 @@ export default function ProductCard() {
               </figure>
             </div>
             <div className="media-content">
-              <p className="title is-6">Boys Watch</p>
+              <p className="title is-6"><b>Boys Watch</b></p>
               <p className="subtitle is-7">@Rolex</p>
             </div>
           </div>
@@ -36,7 +36,8 @@ export default function ProductCard() {
           <div className="content">
             A great product for daily use. Lightweight, durable, and stylish.
             <br />
-            <center><h5>rating</h5></center>
+            
+            <center><h5><b>RATING</b></h5></center>
             <center>⭐⭐⭐⭐⭐</center>
             
           </div>
