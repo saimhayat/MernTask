@@ -1,6 +1,13 @@
 import { useState } from "react";
 import { Rating } from 'react-simple-star-rating'
 export default function Cubes(props) {
+
+
+  function truncateText(text, maxLength) {
+    if (text.length <= maxLength) return text;
+    return text.slice(0, maxLength) + '...';
+  }
+
   return (
     <div className="card">
       <div className="card-image">
@@ -35,7 +42,7 @@ export default function Cubes(props) {
         </div>
 
         <div className="content">
-          {props.product.description}<a>@IOS</a>
+          { truncateText(props.product.description, 100) }<a>@IOS</a>
           <br />
           <br />
           <h4>

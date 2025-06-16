@@ -8,8 +8,8 @@ export default function Home() {
     <>
       <div className="container">
         <div className="row">
-          {products.map((products) => (
-            <div className="col-md-4">
+          {products.map((products, i) => (
+            <div key={i} className="col-md-4">
               <Cubes product={products} />
             </div>
           ))}
