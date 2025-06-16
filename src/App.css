@@ -1,0 +1,289 @@
+
+.content {
+  text-align: center;
+  margin-top: 5px;
+}
+    
+
+/* Labels */
+.rating label {
+  pointer-events: none; /* Prevent labels from being clicked directly */
+}
+.container {
+  margin-top: 100px;
+}
+/* Card CSS */
+/* Card container */
+.card {
+  max-width: 350px; /* Set a max width for smaller card */
+  margin: 20px auto; /* Add margin at the top and bottom of the card */
+  border-radius: 8px; /* Rounded corners */
+  overflow: hidden; /* Prevents content from overflowing */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  transition: transform 0.2s ease-in-out;
+}
+
+/* Hover effect */
+.card:hover {
+  transform: scale(1.05); /* Slight zoom effect on hover */
+}
+
+/* Image */
+.card-image figure {
+  margin: 0;
+}
+
+.card-image img {
+  object-fit: cover;
+  width: 100%; /* Ensure the image fills the container */
+  height: 200px; /* Fixed height for the image */
+}
+
+/* Card content */
+.card-content {
+  padding: 15px;
+}
+
+/* Media (avatar section) */
+.media {
+  margin-bottom: 10px;
+}
+
+.media-left figure img {
+  border-radius: 50%;
+}
+
+.media-content .title {
+  font-size: 1rem; /* Smaller title */
+  font-weight: bold;
+}
+
+.media-content .subtitle {
+  font-size: 0.875rem; /* Smaller subtitle */
+  color: #555;
+}
+
+/* Content section */
+.card-content .content {
+  font-size: 0.875rem; /* Smaller content text */
+  color: #333;
+}
+
+.card-content .content time {
+  font-size: 0.75rem;
+  color: #888;
+}
+
+/* Responsiveness */
+@media (max-width: 768px) {
+  .card {
+    max-width: 100%; /* Full width on smaller screens */
+    margin: 15px; /* Reduce margin */
+  }
+
+  .card-image img {
+    height: 180px; /* Slightly smaller image for mobile */
+  }
+}
+
+/* Button CSS */
+/* Default Button Styling */
+.button {
+  padding: 12px 24px; /* Size the button */
+  background-color: #000000; /* Vibrant red background */
+  color: rgb(255, 255, 255); /* White text */
+  font-size: 1rem; /* Text size */
+  font-weight: bold; /* Bold text */
+  border: none; /* Remove default border */
+  border-radius: 25px; /* Rounded corners */
+  text-align: center; /* Center the text */
+  cursor: pointer; /* Pointer cursor on hover */
+  transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth transition */
+  display: inline-block; /* Allow inline display */
+  text-decoration: none; /* Remove underline if it's a link */
+  box-sizing: border-box; /* Ensure padding and borders are included in the width/height calculation */
+  margin-left: 20px;
+}
+
+/* Hover Effect */
+.button:hover {
+  background-color: #d8d8d8; /* Darker red on hover */
+  transform: scale(1.05); /* Slight zoom effect */
+}
+
+/* Active Button State */
+.button:active {
+  transform: scale(0.98); /* Slight shrink effect when clicked */
+}
+
+/* Focus Styling (Remove default focus outline) */
+.button:focus {
+  outline: none; /* Remove focus outline */
+  box-shadow: 0 0 0 3px rgba(196, 196, 196, 0.5); /* Optional: add a subtle glow around button when focused */
+}
+/* This is Navbar CSS */
+/* Reset basic styling */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.navbar {
+  background-color: #3e3e3efb;
+  color: rgb(240, 239, 239);
+  display: flex;
+ 
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 2rem;
+  position: relative;
+}
+
+.navbar-logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.navbar-links {
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+}
+
+.navbar-links a {
+  text-decoration: none;
+  color: white;
+  transition: color 0.2s ease;
+}
+
+.navbar-links a:hover {
+  color: #61dafb;
+}
+
+.dropdown {
+  position: relative;
+  cursor: pointer;
+}
+
+.dropdown-menu {
+  position: absolute;
+  background-color: #000000;
+  top: 100%;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  padding: 0.5rem 0;
+  min-width: 150px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.991);
+}
+
+.dropdown-menu a {
+  padding: 0.5rem 1rem;
+  text-decoration: none;
+  color: white;
+}
+
+.dropdown-menu a:hover {
+  background-color: #3a3f47;
+}
+
+/* Mobile styles */
+.mobile-menu-icon {
+  font-size: 1.5rem;
+  display: none;
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .navbar-links {
+    display: none;
+    flex-direction: column;
+    background-color: #20232a;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    z-index: 10;
+  }
+
+  .navbar-links.active {
+    display: flex;
+  }
+
+  .mobile-menu-icon {
+    display: block;
+  }
+}
+
+/* this is the 404 page css */
+.notfound-container {
+  font-family: 'Poppins', sans-serif;
+  height: 100vh;
+  background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  animation: fadeIn 1s ease-in-out;
+  overflow: hidden;
+}
+
+.notfound-title {
+  font-size: 10rem;
+  font-weight: 600;
+  color: #ff6b6b;
+  animation: float 2s ease-in-out infinite;
+}
+
+.notfound-message {
+  font-size: 1.5rem;
+  color: #333;
+  margin-bottom: 30px;
+}
+
+.notfound-button {
+  padding: 12px 30px;
+  background: #4dabf7;
+  color: white;
+  border: none;
+  border-radius: 30px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.notfound-button:hover {
+  background: #339af0;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@media (max-width: 600px) {
+  .notfound-title {
+    font-size: 6rem;
+  }
+
+  .notfound-message {
+    font-size: 1.2rem;
+  }
+}
