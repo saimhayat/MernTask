@@ -1,9 +1,12 @@
+body {
+  background: linear-gradient(45deg, #3cbeff, #5a5a5a);  /* light gray solid background */
+  color: rgb(255, 255, 255);          /* change text color to black for better visibility */
+}
 
 .content {
   text-align: center;
   margin-top: 5px;
 }
-    
 
 /* Labels */
 .rating label {
@@ -21,6 +24,7 @@
   overflow: hidden; /* Prevents content from overflowing */
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
   transition: transform 0.2s ease-in-out;
+
 }
 
 /* Hover effect */
@@ -47,6 +51,9 @@
 /* Media (avatar section) */
 .media {
   margin-bottom: 10px;
+}
+.media-content {
+  text-align: justify;
 }
 
 .media-left figure img {
@@ -90,7 +97,7 @@
 /* Default Button Styling */
 .button {
   padding: 12px 24px; /* Size the button */
-  background-color: #000000; /* Vibrant red background */
+  background-color: #00cff9; /* Vibrant red background */
   color: rgb(255, 255, 255); /* White text */
   font-size: 1rem; /* Text size */
   font-weight: bold; /* Bold text */
@@ -127,40 +134,87 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
+/* Navbar Container */
 .navbar {
-  background-color: #3e3e3efb;
-  color: rgb(240, 239, 239);
-  display: flex;
- 
-  align-items: center;
-  justify-content: space-between;
-  padding: 1rem 2rem;
-  position: relative;
+ background: rgba(85, 85, 85, 0.3); /* transparent glass effect */
+ backdrop-filter: blur(10px);
+ -webkit-backdrop-filter: blur(10px);
+  
+ padding: 1rem 2rem;
+ display: flex;
+ align-items: center;
+ /* Remove justify-content from here, or set it to flex-start if you also want the mobile menu icon pushed to the far right */
+ justify-content: flex-start; /* This ensures items start from the left */
+ box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+ transition: all 0.3s ease-in-out;
+ position: relative;
+ z-index: 100;
 }
 
+/* Logo */
 .navbar-logo {
-  font-size: 1.5rem;
-  font-weight: bold;
+ font-size: 1.8rem;
+ font-weight: bold;
+ background: linear-gradient(45deg, #54ceff, #54ceff);
+ -webkit-background-clip: text;
+ -webkit-text-fill-color: transparent;
+ margin-right: 2rem; /* Add some space between the logo and the links */
 }
 
+/* Navbar Links */
 .navbar-links {
-  display: flex;
-  gap: 1.5rem;
-  align-items: center;
+ display: flex;
+ gap: 2rem;
+ align-items: center;
+ margin-left: 360px;
+ /* No changes needed here for this specific requirement */
+}
+
+/* For the mobile menu icon to stay on the far right if desired */
+@media (max-width: 768px) {
+    .mobile-menu-icon {
+        margin-left: auto; /* Pushes the mobile menu icon to the far right on small screens */
+        display: block; /* Ensure it's displayed on mobile */
+    }
+    .navbar {
+        justify-content: space-between; /* On mobile, restore space-between to push icon to right */
+    }
+    .navbar-logo {
+        margin-right: 0; /* Remove margin right on logo for mobile if it creates too much space */
+    }
 }
 
 .navbar-links a {
+  position: relative;
   text-decoration: none;
-  color: white;
-  transition: color 0.2s ease;
+  color: #ffffff;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.navbar-links a::after {
+  content: "";
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  left: 0;
+  bottom: -4px;
+  background-color: #56a9f1;
+  transition: width 0.3s ease;
+}
+
+.navbar-links a:hover::after {
+  width: 100%;
 }
 
 .navbar-links a:hover {
   color: #61dafb;
 }
 
+/* Dropdown */
 .dropdown {
   position: relative;
   cursor: pointer;
@@ -168,43 +222,54 @@
 
 .dropdown-menu {
   position: absolute;
-  background-color: #000000;
-  top: 100%;
+  background: rgba(20, 20, 20, 0.9);
+  top: 120%;
   left: 0;
-  display: flex;
   flex-direction: column;
   padding: 0.5rem 0;
-  min-width: 150px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.991);
+  min-width: 180px;
+  border-radius: 10px;
+  box-shadow: 0 10px 20px rgba(53, 53, 53, 0.4);
+  display: none;
+  animation: fadeIn 0.3s ease forwards;
+}
+
+.dropdown:hover .dropdown-menu {
+  display: flex;
 }
 
 .dropdown-menu a {
-  padding: 0.5rem 1rem;
+  padding: 0.75rem 1.2rem;
   text-decoration: none;
   color: white;
+  transition: background 0.2s ease;
 }
 
 .dropdown-menu a:hover {
-  background-color: #3a3f47;
+  background-color: #333;
+  color: #61dafb;
 }
 
-/* Mobile styles */
+/* Mobile */
 .mobile-menu-icon {
-  font-size: 1.5rem;
+  font-size: 2rem;
+  color: white;
   display: none;
   cursor: pointer;
 }
 
 @media (max-width: 768px) {
   .navbar-links {
-    display: none;
-    flex-direction: column;
-    background-color: #20232a;
     position: absolute;
     top: 100%;
     left: 0;
+    background: rgba(16, 16, 18, 0.9);
+    flex-direction: column;
     width: 100%;
-    z-index: 10;
+    display: none;
+    animation: slideDown 0.3s ease forwards;
+    border-bottom-left-radius: 16px;
+    border-bottom-right-radius: 16px;
   }
 
   .navbar-links.active {
@@ -216,9 +281,32 @@
   }
 }
 
+/* Animations */
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10%);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
 /* this is the 404 page css */
 .notfound-container {
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
   height: 100vh;
   background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
   display: flex;
@@ -270,7 +358,8 @@
 }
 
 @keyframes float {
-  0%, 100% {
+  0%,
+  100% {
     transform: translateY(0);
   }
   50% {
@@ -286,4 +375,57 @@
   .notfound-message {
     font-size: 1.2rem;
   }
+}
+.detail-product{
+  text-align: center;
+  margin-top: 50px;
+}
+.product-image{
+  width: 200px;
+  margin-left: 43%;
+}
+
+.nav-cart {
+    margin-left: 550px;
+}
+
+
+.nav-cart a {
+    color: #ffffff; 
+    text-decoration: none; 
+    position: relative;
+}
+
+
+.nav-cart a:hover {
+    color: #61dafb; 
+}
+
+
+.nav-cart a::after {
+    content: "";
+    position: absolute;
+    width: 0%;
+    height: 2px;
+    left: 0;
+    bottom: -4px;
+    background-color: #56a9f1;
+    transition: width 0.3s ease;
+}
+
+.nav-cart a:hover::after {
+    width: 100%;
+}
+
+.nav-cart a .bi-cart4 {
+    color: #ffffff;
+}
+
+
+.nav-cart a span {
+    color: #ffffff;
+}
+
+.nav-cart a:hover span {
+    color: #61dafb;
 }

@@ -1,7 +1,7 @@
 import React from "react";
 import Navbar from "../components/Navbar";
 import { products } from "../data";
-import Cubes from "../components/Cubes";
+import Cubes from "../components/Cards";
 
 export default function Home() {
   return (
