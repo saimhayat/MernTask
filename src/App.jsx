@@ -10,13 +10,13 @@ import DetailPage from "./pages/DetailPage";
 import { createContext, useState } from "react";
 
 
-export const CountContext = createContext(0); 
+export const CountContext = createContext(); 
 
 export default function App() {
   const [count, setCount] = useState(0);
   
   return (
-        <CountContext.Provider value={{ count: count, setCount: setCount }}>
+        <CountContext.Provider value={{ count, setCount }}>
       <BrowserRouter>
         <Navbar />
         <Routes>

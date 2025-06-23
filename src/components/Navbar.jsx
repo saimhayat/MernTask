@@ -3,9 +3,8 @@ import { Link } from 'react-router';
 import { CountContext } from '../App';
 import { useContext } from 'react';
 
-const Navbar = () => {
-
-  const [count, setCount] = useContext(CountContext)
+function Navbar () {
+  const {count, setCount}= useContext(CountContext)
   
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [isDropdownOpen, setDropdownOpen] = useState(false);
@@ -35,7 +34,7 @@ const Navbar = () => {
         <Link to="/contact">Contact Us</Link>
       </div>
       <div className='nav-cart'>
-        <Link to="/cart"><i className="bi bi-cart4">{count}</i></Link>
+        <Link to="/cart"><i className="bi bi-cart4"></i>{count}</Link>
 
       </div>
 
