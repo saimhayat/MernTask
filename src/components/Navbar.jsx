@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link } from 'react-router';
-import { CountContext } from '../App';
-import { useContext } from 'react';
+import { CartContext } from '../App';
+
 
 function Navbar () {
-  const {count, setCount}= useContext(CountContext)
+
+  const {cart, setCart} = useContext(CartContext)
   
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [isDropdownOpen, setDropdownOpen] = useState(false);
@@ -34,7 +35,7 @@ function Navbar () {
         <Link to="/contact">Contact Us</Link>
       </div>
       <div className='nav-cart'>
-        <Link to="/cart"><i className="bi bi-cart4"></i>{count}</Link>
+        <Link to="/cart"><i className="bi bi-cart4"> {cart.length}</i></Link>
 
       </div>
 

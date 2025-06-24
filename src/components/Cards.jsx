@@ -2,20 +2,27 @@ import { useState } from "react";
 import { Link } from "react-router-dom"; // Note: Changed 'react-router' to 'react-router-dom'
 import { Rating } from "react-simple-star-rating";
 import Products from "../pages/Products";
-import { CountContext } from "../App";
+import { CartContext } from "../App";
 import { useContext } from "react";
 
 export default function Cards(props) {
 
-  const {count, setCount} = useContext(CountContext)
+  const {cart, setCart} = useContext(CartContext)
+
 
   function truncateText(text, maxLength) {
     if (text.length <= maxLength) return text;
     return text.slice(0, maxLength) + "...";
   }
 
-  const handleClick = ()=>{
-    setCount(count + 1)
+  const handleClick = (p)=>{
+
+  const founditem =  cart.find((i)=>i.id == p.id)
+  if(!founditem){
+    setCart([...cart, p])
+  }
+
+    
   }
 
   return (
@@ -43,7 +50,7 @@ export default function Cards(props) {
               <b>{props.product.price}</b>
             </h4>
             <br />
-            <button className="button" onClick={handleClick}>Add To Cart - {count}</button>
+            <button className="button" disabled={cart.find((i)=>i.id == props.product.id)? true:false} onClick={()=>handleClick(props.product)}> {cart.find((i)=>i.id == props.product.id)? 'ALREADY IN CART':' Add To Cart'} </button>
           </div>
         </div>
 

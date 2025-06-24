@@ -1,5 +1,5 @@
 body {
-  background: linear-gradient(45deg, #3cbeff, #5a5a5a);  /* light gray solid background */
+  background-color:rgb(147, 62, 62) ;
   color: rgb(255, 255, 255);          /* change text color to black for better visibility */
 }
 
@@ -24,7 +24,6 @@ body {
   overflow: hidden; /* Prevents content from overflowing */
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
   transition: transform 0.2s ease-in-out;
-
 }
 
 /* Hover effect */
@@ -97,8 +96,8 @@ body {
 /* Default Button Styling */
 .button {
   padding: 12px 24px; /* Size the button */
-  background-color: #00cff9; /* Vibrant red background */
-  color: rgb(255, 255, 255); /* White text */
+  background-color: #00e5ff; /* Vibrant red background */
+  color: rgb(255, 0, 0); /* White text */
   font-size: 1rem; /* Text size */
   font-weight: bold; /* Bold text */
   border: none; /* Remove default border */
@@ -114,7 +113,7 @@ body {
 
 /* Hover Effect */
 .button:hover {
-  background-color: #d8d8d8; /* Darker red on hover */
+  background-color: #000000; /* Darker red on hover */
   transform: scale(1.05); /* Slight zoom effect */
 }
 
@@ -139,10 +138,9 @@ body {
 
 /* Navbar Container */
 .navbar {
- background: rgba(85, 85, 85, 0.3); /* transparent glass effect */
+ background: rgb(57, 57, 57); /* transparent glass effect */
  backdrop-filter: blur(10px);
  -webkit-backdrop-filter: blur(10px);
-  
  padding: 1rem 2rem;
  display: flex;
  align-items: center;
@@ -383,6 +381,7 @@ body {
 .product-image{
   width: 200px;
   margin-left: 43%;
+  margin-top: 50px;
 }
 
 .nav-cart {
@@ -429,3 +428,4 @@ body {
 .nav-cart a:hover span {
     color: #61dafb;
 }
+
