@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom"; // Note: Changed 'react-router' to 'react-router-dom'
 import { Rating } from "react-simple-star-rating";
 import Products from "../pages/Products";
@@ -8,6 +8,17 @@ import { useContext } from "react";
 export default function Cards(props) {
 
   const {cart, setCart} = useContext(CartContext)
+
+  useEffect(()=>{
+    const cartFromStorage = JSON.parse(localStorage.getItem('cart'))
+    setCart(cartFromStorage || [])
+  }, [])
+
+  useEffect(()=>{
+   if(cart.length){
+    localStorage.setItem('cart', JSON.stringify(cart))
+   }
+  }, [cart])
 
 
   function truncateText(text, maxLength) {

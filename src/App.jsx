@@ -8,13 +8,17 @@ import Cart from "./pages/Cart";
 import Navbar from "./components/Navbar";
 import DetailPage from "./pages/DetailPage";
 import { createContext, useState } from "react";
+import { useEffect } from "react";
 
 
 export const CartContext = createContext(); 
 
 export default function App() {
   const [cart, setCart] = useState([]);
-
+  useEffect(()=>{
+    const cartFromStorage = JSON.parse(localStorage.getItem('cart'))
+    setCart(cartFromStorage || [])
+  }, [])
   
   return (
         <CartContext.Provider value={{ cart, setCart }}>

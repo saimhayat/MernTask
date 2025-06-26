@@ -4,6 +4,14 @@ import { useContext } from "react";
 
 function Cart() {
   const {cart, setCart} = useContext(CartContext)
+  const handleClearCart = ()=>{
+    setCart([])
+  }
+
+  const handleDelete = (id)=>{
+    const updatedCart = cart.filter(c=>c.id != id)
+    setCart(updatedCart)
+  }
   return (
     <div className="container">
 
@@ -15,7 +23,7 @@ function Cart() {
       <th scope="col">image</th>
       <th scope="col">title</th>
       <th scope="col">Price</th>
-      <th scope="col">Handle</th>
+      <th scope="col">Remove</th>
     </tr>
   </thead>
   <tbody>
@@ -27,7 +35,9 @@ function Cart() {
       </td>
       <td>{item.title}</td>
       <td>{item.price}</td>
-      <td>123</td>
+      <td>
+        <button className="btn btn-danger" onClick={()=>handleDelete(item.id)}><i class="bi bi-trash3"></i></button>
+        </td>
     </tr>
         )
       }
@@ -35,6 +45,7 @@ function Cart() {
     
   </tbody>
 </table>
+<button className="btn btn-danger" onClick={handleClearCart}>Clear Cart</button>
       
     </div>
   );
