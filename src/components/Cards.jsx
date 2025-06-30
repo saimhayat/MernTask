@@ -13,7 +13,6 @@ export default function Cards(props) {
     const cartFromStorage = JSON.parse(localStorage.getItem('cart'))
     setCart(cartFromStorage || [])
   }, [])
-
   useEffect(()=>{
    if(cart.length){
     localStorage.setItem('cart', JSON.stringify(cart))
@@ -24,12 +23,14 @@ export default function Cards(props) {
   function truncateText(text, maxLength) {
     if (text.length <= maxLength) return text;
     return text.slice(0, maxLength) + "...";
+    
   }
 
-  const handleClick = (p)=>{
+  const handleAddToCart = (p)=>{
 
   const founditem =  cart.find((i)=>i.id == p.id)
   if(!founditem){
+    p.qty = 1
     setCart([...cart, p])
   }
 
@@ -57,11 +58,11 @@ export default function Cards(props) {
             <p className="subtitle is-6"></p>
             <br />
             <h4>
-              <b>PKr. </b>
+              <b>PKR. </b>
               <b>{props.product.price}</b>
             </h4>
             <br />
-            <button className="button" disabled={cart.find((i)=>i.id == props.product.id)? true:false} onClick={()=>handleClick(props.product)}> {cart.find((i)=>i.id == props.product.id)? 'ALREADY IN CART':' Add To Cart'} </button>
+            <button className="button" disabled={cart.find((i)=>i.id == props.product.id)? true:false} onClick={()=>handleAddToCart(props.product)}> {cart.find((i)=>i.id == props.product.id)? 'ADDED IN CART':' Add To Cart'} </button>
           </div>
         </div>
 
@@ -76,9 +77,11 @@ export default function Cards(props) {
             readonly={true}
             allowFraction={true}
             initialValue={props.product.rating.rate}
+            
           />
         </div>
       </div>
     </div>
   );
 }
+
